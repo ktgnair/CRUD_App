@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+main {
+    padding: 16px;
+    text-align: center;
+}
+
+wired-card {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    display: block;
+}
+
+section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+wired-button {
+    background: #de1d2d;
+    color: black;
+    margin: 8px;
+}
+
+wired-input {
+    width: 300px;
+    font-family: inherit;
+}
+
+wired-textarea {
+    margin: 10px 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+#add {
+     background: lightgreen;
+     color: black;
+}
+
+#update {
+     background: #fccc04;
+     color: black;
+}
+
+#delete {
+     background: #fc4444;
+     color: black;
+}
+
+#view {
+     background: #00bcd4;
+     color: black;
+}
+
+p {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* For page_progress page */
+wired-progress {
+    margin: 10px;
+}
+
+wired-button {
+    margin: 0 10px;
+}
+  
+/* For Page Loader functionality */
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+  width: 100px;
+}
+
+.loader.hidden {
+    animation: fadeOut 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* For add_server form */
+input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  font-family: inherit;
+  background-color: white;
+}
+
+textarea {
+  width: 80%;
+  height: 80px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  font-family: inherit;
+  background-color: white;
+  resize: none;
+}
+
+button[type=submit] {
+  background-color: #4CAF50;
+  border-style: ridge;
+  color: black;
+  font-family: inherit;
+  padding: 10px 24px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+button[type=redirect] {
+  background-color: #fccc04;
+  border-style: ridge;
+  color: black;
+  font-family: inherit;
+  padding: 10px 24px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+/* For View Server page */
+.record_table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-family: sans-serif;
+  font-size: 1.0em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.record_table thead tr {
+  text-align: left;
+  font-weight: bold;
+}
+
+.record_table th {
+  border-top: 2px solid #009578;
+  border-bottom: 2px solid #009578;
+  color: gray;
+}
+
+.record_table th,
+.record_table td {
+  padding: 12px 15px;
+}
+
+.record_table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+}
+
+.search-input {
+  font-size: 1em;
+  padding: 0.6em 1em;
+  border: none;
+  outline: none;
+  font-family: sans-serif;
+}
+
+#update_link{
+  background-color: green;
+  border-style: ridge;
+  color: white;
+  font-family: inherit;
+  padding: 0.2em 1em;
+  margin: 8px;
+  text-decoration: none;
+}
+
+#delete_link {
+  background-color: #de1d2d;
+  border-style: ridge;
+  color: white;
+  font-family: inherit;
+  padding: 0.2em 1.2em;
+  margin: 8px;
+  text-decoration: none;
+}
+
+/* background-color: #fccc04;
+  border-style: ridge;
+  color: black;
+  font-family: inherit;
+  padding: 10px 24px;
+  margin: 8px;
+  cursor: pointer; */

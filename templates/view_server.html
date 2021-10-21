@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Common Services DevOps Server Inventory</title>
+{% endblock %}
+
+{% block body %}
+<main>
+  <wired-card elevation="5">
+    <h1>Records Section</h1>
+  </wired-card>
+  <br>
+  <wired-button id="update" onclick="location.href='/'">Back to Home Page</wired-button>
+  <br><br>
+  <table class="record_table">
+    <thead>
+      <tr>
+        <th><input type="text" class="search-input" placeholder="Hostname"></th>
+        <th><input type="text" class="search-input" placeholder="Description"></th>
+        <th><input type="text" class="search-input" placeholder="Status"></th>
+        <th><input type="text" class="search-input" placeholder="Updated"></th>
+        <th>Action</th>
+      </tr>
+    </thead>  
+      {% for d in data %}
+    <tbody>
+      <tr>
+        <td>{{d.Hostname}}</td>
+        <td>{{d.Description}}</td>
+        <td>{{d.Status}}</td>
+        <td>{{d.Updated}}</td>
+        <td>
+          <!-- <a id="update_link"href="update/{{d.id}}">Update</a> -->
+          <button type="redirect" onclick="location.href='update/{{d.id}}'">UPDATE</button>
+          <br>
+          <a id="delete_link" href="delete/{{d.id}}" onclick="return confirm('Are you sure you want to delete this record!!!.') ">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+</main>
+  
+<script type="module" src="https://unpkg.com/wired-elements?module"></script>
+<script>
+    /* DOMContentLoaded loads the content without waiting for images and stylesheet to finish loading */
+  document.addEventListener("DOMContentLoaded", () => {
+      /* Search every single input field and run the function for each input fields */
+    document.querySelectorAll(".search-input").forEach((inputField) => {
+          /* Go to the closest table and select all the tr from tbody i.e it stores the data */
+      const tableRows = inputField.closest("table").querySelectorAll("tbody  tr");
+            /* This is to determine which index of the cell which needs to be searched */
+      const headerCell = inputField.closest("th");
+            /* This is to select all the table headers */
+      const otherHeaderCells = inputField.closest("tr").querySelectorAll("th");
+            /* This is to retrieve the index of the cell on basis of which searching will work. */
+      const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+
+      const searchableCells = Array.from(tableRows)
+        .map(row => row.querySelectorAll("td")[columnIndex]);
+
+        /* Listen for input events */
+        inputField.addEventListener("input", () => {
+            /* To achieve case-insensitive searching we are converting the search values to lower case */
+          const searchQuery = inputField.value.toLowerCase();
+
+          for (const tableCell of searchableCells) {
+            const row = tableCell.closest("tr");
+            const value = tableCell.textContent.toLowerCase().replace(",", "");
+
+            row.style.visibility = null;
+
+            if (value.search(searchQuery) === -1) {
+              row.style.visibility = "collapse";
+            }
+          }
+        });
+    });
+  });
+</script> 
+{% endblock %}
